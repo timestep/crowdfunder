@@ -50,5 +50,6 @@ group :test do
 end
 
 group :assets do 
-	gem 'bootstrap-sass', '~> 2.2.2.0'
+	gem 'bootstrap'
+	gem 'bootstrap-sass'
 end
