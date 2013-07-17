@@ -48,3 +48,7 @@ group :test do
 	gem 'capybara'
 	gem 'pry-rails'
 end
+
+group :assets do 
+	gem 'bootstrap-sass', '~> 2.2.2.0'
+end
