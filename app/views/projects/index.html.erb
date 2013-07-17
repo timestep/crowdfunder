@@ -17,10 +17,11 @@
 </div>
 <div class="container">
 	Listing projects
-
-	Project 1
-
-	Project 2
-
-	Project 3
+	<ul>
+		<% @projects.each do |p| %>
+			<li>
+				<%= link_to "Project #{p.id}", project_path(p) %>
+			</li>
+		<% end %>	
+	</ul>
 </div>
