@@ -20,6 +20,9 @@
           <li class="<%= 'active' if params[:controller] == 'projects' && (!current_page? root_path) %>">
             <%= link_to 'Projects', :projects %>
           </li>
+          <li>
+            <%= link_to 'Sign Up', new_user_path %>
+          </li>
         </ul>
       </div>
     </div>
