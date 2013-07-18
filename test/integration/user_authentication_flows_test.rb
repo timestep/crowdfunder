@@ -34,6 +34,7 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
     fill_in "user[email]", :with => user.email
     click_button "Create Account"
     # Should redirect to users_path and ...
+
     assert_equal users_path, current_path
     # ... no message saying "Account created" should appear
     assert page.has_no_content?("Account created")
