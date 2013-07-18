@@ -13,6 +13,7 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
   	#fill in form with infor from user
   	fill_in 'user[email]', :with => user.email
   	fill_in 'user[first_name]', :with => user.first_name
+  	fill_in	'user[username]', :with => user.username
   	fill_in 'user[last_name]', :with => user.last_name
   	fill_in 'user[password]', :with => user.password
   	click_button "Create Account"
@@ -24,7 +25,7 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
   	assert find('.navbar').has_no_link('Sign Up')
   	assert find('.navbar').has_link?('Logout')
   end
-  
+
   test "failed registration" do 
     visit "/users/new"
     user = FactoryGirl.build(:user) 
