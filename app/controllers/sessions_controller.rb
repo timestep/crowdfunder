@@ -15,5 +15,6 @@ class SessionsController < ApplicationController
 	def destroy
 	  logout
 	  redirect_to root_url, :notice => "Logged out!"
+		flash.now.alert = "Bye"
 	end
 end
