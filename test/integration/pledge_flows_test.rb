@@ -13,7 +13,7 @@ class PledgeFlowsTest < ActionDispatch::IntegrationTest
 
  		assert_equal login_path, current_path
  		assert page.has_content?('Please login first.')
- 		
+
  	end
 
  	test 'authenticated user can pledge valid amount' do
@@ -26,6 +26,7 @@ class PledgeFlowsTest < ActionDispatch::IntegrationTest
  		assert_equal 0, Pledge.count
 
  		fill_in 'pledge[amount]', with: 100
+ 		# print page.html
  		click_button 'Pledge Now'
 
  		assert_equal project_path(@project), current_path
