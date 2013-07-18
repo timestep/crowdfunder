@@ -50,7 +50,7 @@ group :test do
 	gem 'pry-rails'
 
 	gem 'database_cleaner'
-	gem 'capybara-webkit' '~> 1.0.0'
+	gem 'capybara-webkit'
 end
 
 
