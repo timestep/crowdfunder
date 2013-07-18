@@ -1,0 +1,6 @@
+<%= form_for [@project, @pledge] do |f| %>
+	<%= f.label :amount %>
+	<%= f.text_field :amount %>
+
+	<%= f.submit "Pledge Now" %>
+<% end %>
