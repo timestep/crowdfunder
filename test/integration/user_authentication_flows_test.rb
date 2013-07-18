@@ -60,4 +60,17 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?('Invalid')
   end
+
+  test 'succesful logout' do
+    Capybara.current_driver = Capybara.javascript_driver
+
+    user = setup_signed_in_user
+
+    visit '/'
+
+    find('.navbar').click_link 'Logout'
+
+    assert page.has_content?("Bye")
+    assert find('.navbar').has_no_content?('Logout')
+  end
 end
