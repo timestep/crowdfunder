@@ -42,5 +42,22 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
     assert find('.alert:first').has_content?("Try again")
   end
 
+  test 'successful log in' do
+    visit '/'
+    assert find('.navbar').has_no_link?('Logout')
+    user = setup_signed_in_user
+    assert find('.navbar').has_link?('Logout')
+  end
 
+  test 'unsuccessful log in' do
+    visit '/session/new'
+
+    fill_in 'email', with: 'a@b.com'
+    fill_in 'password', with: 'invalid creds'
+    click_button 'Login'
+
+    assert_equal session_path, current_path
+
+    assert page.has_content?('Invalid')
+  end
 end
