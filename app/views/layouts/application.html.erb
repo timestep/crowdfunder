@@ -8,37 +8,48 @@
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="/">CrowdFunder</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li class="<%= 'active' if current_page? root_path %>">
-            <%= link_to 'Home', :root %>
-          </li>
-          <li class="<%= 'active' if params[:controller] == 'projects' && (!current_page? root_path) %>">
-            <%= link_to 'Projects', :projects %>
-          </li>
-          <li>
-            <%= link_to 'Sign Up', new_user_path %>
-          </li>
-        </ul>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">CrowdFunder</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="<%= 'active' if current_page? root_path %>">
+              <%= link_to 'Home', :root %>
+            </li>
+            <li class="<%= 'active' if params[:controller] == 'projects' && (!current_page? root_path) %>">
+              <%= link_to 'Projects', :projects %>
+            </li>
+            <% if current_user %>
+              <li>
+                <%= link_to "Logout", logout_path %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'Sign Up', new_user_path %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container", style = 'margin-top:50px'>
-  <% if flash[:notice] %>
+  <div class="container", style = 'margin-top:50px'>
+    <% if flash[:notice] %>
+      <div class="alert alert-block">
+        <p id='notice'><%= flash[:notice]%></p>   
+      </div>
+    <% end %>
+  <% if flash[:alert] %>
     <div class="alert alert-block">
-      <p id='notice'><%= flash[:notice]%></p>   
+      <p id='alert'><%= flash[:alert] %></p>
     </div>
   <% end %>
-	
-  <%= yield %>
 
-</div>
+    <%= yield %>
+
+  </div>
 
 
 </body>
