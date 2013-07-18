@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   		auto_login(@user)
   		redirect_to root_url, :notice => "Account created"
   	else
+      flash.now.alert = 'Try again'
   		render :new
   	end
   end

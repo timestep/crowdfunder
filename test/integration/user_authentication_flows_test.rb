@@ -38,6 +38,8 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
     assert_equal users_path, current_path
     # ... no message saying "Account created" should appear
     assert page.has_no_content?("Account created")
+      # Should see "Try again" message on failure to register 
+    assert find('.alert:first').has_content?("Try again")
   end
 
 
