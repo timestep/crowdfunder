@@ -54,9 +54,10 @@ class UserAuthenticationFlowsTest < ActionDispatch::IntegrationTest
 
     fill_in 'email', with: 'a@b.com'
     fill_in 'password', with: 'invalid creds'
+
     click_button 'Login'
 
-    assert_equal session_path, current_path
+    assert_equal sessions_path, current_path
 
     assert page.has_content?('Invalid')
   end
