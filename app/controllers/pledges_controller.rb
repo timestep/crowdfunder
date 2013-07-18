@@ -8,5 +8,10 @@ class PledgesController < ApplicationController
 
 	def create
 	end
-	
+
+	private
+
+	def require_project
+		@project = Project.find params[:project_id]
+	end
 end
