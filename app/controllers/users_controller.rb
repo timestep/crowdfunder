@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+	
+	def index
+	end
+
   def new
   	@user = User.new
   end
@@ -10,7 +14,7 @@ class UsersController < ApplicationController
   		auto_login(@user)
   		redirect_to root_url, :notice => "Account created"
   	else
-  		redirect_to '/users'
+  		render :new
   	end
   end
 

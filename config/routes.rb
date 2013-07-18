@@ -6,7 +6,7 @@ Crowdfunder::Application.routes.draw do
   root 'projects#index'
 
   resources :projects
-  resources :users
+  resources :users, except: [:index]
   resources :sessions
-  
+
 end

@@ -4,7 +4,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 
 	test 'browsing projects' do
 		#create 3 projects
-		# user = FactoryGirl.create(:user)
+	
 		# binding.pry
 		project1 = FactoryGirl.create(:project, :title => 'Project 1')
 		project2 = FactoryGirl.create(:project, :title => 'Project 2')
