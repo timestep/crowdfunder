@@ -3,6 +3,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
+	teardown do 
+		DatabaseCleaner.clean
+	end
 end
 
 DatabaseCleaner.strategy = :truncation
@@ -31,6 +34,8 @@ class ActionDispatch::IntegrationTest
 		fill_in 'email', with: user.email
 		fill_in 'password', with: pass
 		click_button "Login"
+
+		user
 	end
 end
 
