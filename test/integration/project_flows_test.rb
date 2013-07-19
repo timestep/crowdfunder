@@ -57,5 +57,18 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 	end
 
 	test "pagination" do
+		user = FactoryGirl.create :user
+		50.times { |i| FactoryGirl.create(:project, title: "Project #{i}", user: user)}
+
+		visit '/projects'
+
+		assert page.has_content?("Displaying projects 1 - 8 of 50 in total")
+		assert page.has_content?("Project 49")
+		assert page.has_no_content?("Project 41")
+		page.assert_selector 'li.project', count: 8
+
+		page.find('.pageination').click_link '2'
+		assert page.has_content?('Project 41')
+		assert page.has_no_content?('Project 32')
 	end
 end
