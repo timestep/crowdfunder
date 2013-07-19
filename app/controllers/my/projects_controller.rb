@@ -4,7 +4,7 @@ class My::ProjectsController < ApplicationController
 	before_filter :require_project, except: [:index,:new,:create]
 
 	def index
-		@projects = Project.all
+		@projects = current_user.projects.load
 	end
 
 	def new 
