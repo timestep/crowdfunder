@@ -13,8 +13,8 @@ class PledgesController < ApplicationController
 		@pledge.user = current_user
 
 		if @pledge.save
+			UserMailer.new_pledge(@pledge).deliver
 			redirect_to @project, notice: "Thanks for pledging"
-			UserMailer.new_pledge(current_user).deliver
 		else
 			render :new
 		end
