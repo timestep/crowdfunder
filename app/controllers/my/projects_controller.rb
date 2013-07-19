@@ -16,6 +16,9 @@ class My::ProjectsController < ApplicationController
 	def edit
 	end	
 
+	def update
+	end
+
 	private
 
 	def require_project
