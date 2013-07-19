@@ -55,4 +55,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 	
 		assert_equal 'Projects', find('.navbar ul li.active a').text
 	end
+
+	test "pagination" do
+	end
 end
