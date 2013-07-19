@@ -42,6 +42,7 @@ end
 group :development do
 	gem 'better_errors'
 	gem 'pry-rails'
+	gem 'letter_opener'
 end
 
 group :test do
