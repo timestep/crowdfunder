@@ -3,6 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def new_pledge(pledge)
   	@user = pledge.project.user
+  	@pledge = pledge
   	mail(to: @user.email, subject: "Your project recieved some backing on CrowdFunder." )
   end
 end
