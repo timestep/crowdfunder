@@ -1,7 +1,16 @@
-<%= form_for @project do |f| %>
+<%= form_for [:my, @project] do |f| %>
 	
 	<%= f.label :title %>
 	<%= f.text_field :title %>
+
+	<%= f.label :teaser %>
+	<%= f.text_field :teaser %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+	<%= f.label :goal %>
+	<%= f.text_field :goal %>
 
 	<%= f.submit "Pledge Now" %>
 

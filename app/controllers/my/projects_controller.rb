@@ -12,9 +12,9 @@ class My::ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = current_user.projects.build params[:project]
+		@project = current_user.projects.build(project_params)
 		if @project.save
-			redirect_to [:my, :projects], notice: 'Project created!'
+			redirect_to my_projects_path, notice: 'Project created!'
 		else
 			render :new
 		end
@@ -24,12 +24,11 @@ class My::ProjectsController < ApplicationController
 	end	
 
 	def update
-		
-		if @project = update_attributes params[:project]
-			redirect_to [:my, :projects], notice: 'Project updated!'
-		else
-			render :edit
-		end
+		if @project.update_attributes(project_params)
+      redirect_to my_projects_path, notice: "Project updated!"
+    else
+      render :edit
+    end
 	end
 
 	private
@@ -38,5 +37,8 @@ class My::ProjectsController < ApplicationController
 		@project = current_user.projects.find params[:id]
 	end
 
+	def project_params
+		params.require(:project).permit!
+	end
 
 end
