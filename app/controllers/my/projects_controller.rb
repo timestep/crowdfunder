@@ -34,7 +34,13 @@ class My::ProjectsController < ApplicationController
 	private
 
 	def require_project
-		@project = current_user.projects.find params[:id]
+		@project = current_user.projects.find_by_id params[:id]
+		if @project.nil?
+			flash[:alert] = "doesn't exist"
+			redirect_to root_path
+		else
+			@project
+		end
 	end
 
 	def project_params
