@@ -72,4 +72,5 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
   	click_link 'New Project'
   	assert_equal new_my_project_path, current_path
   	assert_equal "My Projects", find('.navbar ul li.active a').text
+  end
 end

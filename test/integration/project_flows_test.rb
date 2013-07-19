@@ -49,6 +49,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 		#assert the projects nav element is active
 		assert_equal "Projects", find('.navbar ul li.active a').text
 		
+		page.assert_selector '.navbar ul li.active a', count: 1
 
 		click_link 'Project 1'
 	
