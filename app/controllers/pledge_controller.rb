@@ -1,2 +1,0 @@
-class PledgeController < ApplicationController
-end
