@@ -67,7 +67,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 		assert page.has_no_content?("Project 41")
 		page.assert_selector 'li.project', count: 8
 
-		page.find('.pageination').click_link '2'
+		page.find('.pagination').click_link '2'
 		assert page.has_content?('Project 41')
 		assert page.has_no_content?('Project 32')
 	end

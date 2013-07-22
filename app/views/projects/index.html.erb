@@ -1,10 +1,11 @@
 Listing projects
 <ul>
 	<% @projects.each do |p| %>
-		<li>
+		<li class="project">
 			<%= link_to "#{p.title}", project_path(p) %>
 		</li>
 	<% end %>	
 </ul>
 
 <%= paginate @projects %>
+<p><%= page_entries_info @projects %></p>
