@@ -6,6 +6,6 @@
 
 <h4>This Project has <%= @images.count %> Images</h4>
 
-<% @images.each do |i| %>
-	<%= image_tag i.file_url.to_s, class: "image" %>
+<% @images.each do |image| %>
+	<%= image_tag image.file_url.to_s, class: "image" %>
 <% end %>

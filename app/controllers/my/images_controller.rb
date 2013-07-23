@@ -4,7 +4,7 @@ class My::ImagesController < ApplicationController
 	before_filter :require_project
 
   def index
-    @images = @project.images.load
+    @images = @project.images.where(file: true).load
     @image = @project.images.build
   end
 
