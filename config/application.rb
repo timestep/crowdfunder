@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module Crowdfunder
   class Application < Rails::Application
+  	
     config.generators do |g|
       g.test_framwork :test_unit, :fixture => false
       g.fixture_replacement :factory_girl, :dir => "test/factories"
