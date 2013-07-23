@@ -32,7 +32,7 @@ class My::ImageFlowsTest < ActionDispatch::IntegrationTest
     click_button("Upload Image")
 
     # Expect to see an error message
-    print page.html
+    # print page.html
     assert page.has_content?('not allowed')
 
     # Should have 0 images on the page
