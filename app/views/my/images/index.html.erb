@@ -1,7 +1,11 @@
 <%= form_for [:my, @project, @image] do |f| %>
-  <%= render 'shared/form_errors', :f => f %>
+	<%= f.label :file %>
   <%= f.file_field :file %>
   <%= f.submit 'Upload Image', class: 'btn' %>
 <% end %>
 
 <h4>This Project has <%= @images.count %> Images</h4>
+
+<% @images.each do |i| %>
+	<%= image_tag i.file_url.to_s, class: "image" %>
+<% end %>
